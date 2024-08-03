@@ -2,17 +2,17 @@
  * Module dependencies.
  */
 
-import "module-alias/register";
-import { config } from "dotenv";
+require("module-alias/register");
+const { config } = require("dotenv");
 config();
 
-import app from "./app";
-import Debug from "debug";
-import http from "http";
+const app = require("./app");
+const Debug = require("debug");
+const http = require("http");
 
 const debug = Debug("server:server");
-import { bootstrapLogger } from "@/utils/loggers";
-import { connect, set } from "mongoose";
+const { bootstrapLogger } = require("@/utils/loggers");
+const { connect, set } = require("mongoose");
 bootstrapLogger();
 
 /**
@@ -103,7 +103,3 @@ function onListening() {
   const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr?.port;
   debug("Listening on " + bind);
 }
-
-// import app from './app';
-
-// app.listen(3003);
