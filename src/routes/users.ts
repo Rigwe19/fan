@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
-import { getLogger } from "@/utils/loggers";
-import User from "@/models/User";
+import { getLogger } from "../utils/loggers";
+import User from "../models/User";
 const router = express.Router();
 const logger = getLogger("USER_ROUTE");
 

@@ -2,17 +2,17 @@
  * Module dependencies.
  */
 
-require("module-alias/register");
-const { config } = require("dotenv");
+import "module-alias/register";
+import { config } from "dotenv";
 config();
 
-const app = require("./app");
-const Debug = require("debug");
-const http = require("http");
+import app from "./app";
+import Debug from "debug";
+import http from "http";
 
 const debug = Debug("server:server");
-const { bootstrapLogger } = require("@/utils/loggers");
-const { connect, set } = require("mongoose");
+import { bootstrapLogger } from "./utils/loggers";
+import { connect, set } from "mongoose";
 bootstrapLogger();
 
 /**

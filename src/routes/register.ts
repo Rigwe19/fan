@@ -1,13 +1,13 @@
 import express, { NextFunction, Request, Response } from "express";
 import { getLogger } from "../utils/loggers";
-import User from "@/models/User";
+import User from "../models/User";
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const logger = getLogger("REGISTER_ROUTE");
 import bcrypt from "bcryptjs";
 import { check, matchedData, validationResult } from "express-validator";
 import { getDigitalCode } from "node-verification-code";
-import sendMail from "@/mail/verification";
+import sendMail from "../mail/verification";
 
 /* POST Register page. */
 router.post(

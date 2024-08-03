@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
-import { getLogger } from "@/utils/loggers";
-import User from "@/models/User";
+import { getLogger } from "../utils/loggers";
+import User from "../models/User";
 import { check, matchedData, validationResult } from "express-validator";
 import { compare } from "bcryptjs";
 const router = express.Router();

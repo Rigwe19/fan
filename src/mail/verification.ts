@@ -1,4 +1,4 @@
-import { IUser } from "@/models/User";
+import { IUser } from "../models/User";
 import nodemailer from "nodemailer";
 const sendMail = async (user: IUser, code: string) => {
   let transporter = nodemailer.createTransport({
