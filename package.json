@@ -2,6 +2,7 @@
   "name": "fan-backend",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc --project ./",
     "build:old": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
