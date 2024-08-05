@@ -44,6 +44,7 @@ class App {
     max: 20,
   });
   private middlewares() {
+    this.server.enable('trust proxy');
     this.server.use(express.json());
     this.server.use(logger("dev"));
     this.server.use(cors());

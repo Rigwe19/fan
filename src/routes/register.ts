@@ -15,7 +15,7 @@ router.post(
   [
     check("name").isString(),
     check("email").isEmail(),
-    check("password").isStrongPassword({ minLength: 8 }),
+    check("password").isAlphanumeric().isLength({ min: 8 }),
     check("phone").isMobilePhone("any"),
   ],
   async (req: Request, res: Response, next: NextFunction) => {

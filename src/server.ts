@@ -33,12 +33,8 @@ const server = http.createServer(app);
  */
 // mongodb://127.0.0.1:27017/employees_db
 set("strictQuery", false);
-// mongodb+srv://igwereinhard:o6BrYdFI8LpjlQ3N@fan-cluster.49uvi1o.mongodb.net/
-const mongodb =
-  // process.env.MONGODB_CONNECTION_STRING ??
-  "mongodb+srv://igwereinhard:o6BrYdFI8LpjlQ3N@fan-cluster.49uvi1o.mongodb.net/fan_db?retryWrites=true&w=majority";
-console.log(mongodb);
-// "mongodb+srv://igwereinhard:atXkGWWoxbfDGu52@fan-cluster.49uvi1o.mongodb.net/?retryWrites=true&w=majority&appName=fan-cluster";
+const mongodb = process.env.MONGODB_CONNECTION_STRING!;
+// console.log(mongodb);
 connect(mongodb).then(async () => {
   server.listen(port, () =>
     console.log("💥🚀💖 ~ server launch  ~ port", port)

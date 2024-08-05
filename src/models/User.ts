@@ -1,5 +1,4 @@
-import { ObjectId } from "mongodb";
-import { Model, Schema, Types, model } from "mongoose";
+import { Model, Schema, model } from "mongoose";
 // export const emailIsUnique = {
 //   async validator(email: string): Promise<boolean> {
 //     const model = this.constructor as Model<IUser>;

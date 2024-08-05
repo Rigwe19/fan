@@ -65,6 +65,7 @@ router.post(
                   password: existingUser.password,
                   phone: existingUser.phone,
                   isVerified: existingUser.isVerified,
+                  id: existingUser._id,
                   token,
                 },
               },
