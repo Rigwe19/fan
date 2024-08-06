@@ -11,6 +11,7 @@ import usersRouter from "./routes/users";
 import loginRouter from "./routes/login";
 import registerRouter from "./routes/register";
 import verifyCodeRouter from "./routes/verifyCode";
+import addDetailRouter from "./routes/add-details";
 import errorHandler from "api-error-handler";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
@@ -44,7 +45,7 @@ class App {
     max: 20,
   });
   private middlewares() {
-    this.server.enable('trust proxy');
+    this.server.enable("trust proxy");
     this.server.use(express.json());
     this.server.use(logger("dev"));
     this.server.use(cors());
@@ -70,9 +71,10 @@ class App {
     this.server.use("/", indexRouter);
     this.server.use("/users", usersRouter);
     // this.server.use("/employees", employeesRouter);
-    this.server.use("/login", loginRouter);
-    this.server.use("/register", registerRouter);
-    this.server.use("/verify-code", verifyCodeRouter);
+    this.server.use("/auth/login", loginRouter);
+    this.server.use("/auth/register", registerRouter);
+    this.server.use("/auth/verify-code", verifyCodeRouter);
+    this.server.use("/auth/add-detail", addDetailRouter);
     this.server.use(errorHandler);
     this.server.use(this.jsonErrorHandler);
     this.server.use("*", (req: Request, res: Response, next: NextFunction) => {

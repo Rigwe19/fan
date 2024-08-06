@@ -26,7 +26,6 @@ router.post(
   ],
   async (req: Request, res: Response, next: NextFunction) => {
     logger.info("login Express");
-    console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.mapped() });
@@ -43,6 +42,7 @@ router.post(
     }
     if (existingUser) {
       bcrypt.compare(password, existingUser.password, function (err, result) {
+        console.log(req.body);
         if (result) {
           try {
             let token;
