@@ -53,7 +53,9 @@ router.post(
                 email: existingUser.email,
               },
               "FindANurseSecret",
-              { expiresIn: "1h" }
+              {
+                // expiresIn: "24h"
+              }
             );
             return res.status(200).json({
               success: true,

@@ -3,7 +3,7 @@ import { Model, Schema, model } from "mongoose";
 
 const schema = new Schema<IDetail, Model<IDetail>, IDetail>(
   {
-    user_id: ObjectId,
+    user_id: { type: Schema.Types.ObjectId, ref: "User" },
     gender: String,
     marital: String,
     religion: String,
@@ -21,7 +21,7 @@ const schema = new Schema<IDetail, Model<IDetail>, IDetail>(
 );
 
 export interface IDetail {
-  user_id: string;
+  user_id: ObjectId;
   gender: string;
   marital: string;
   religion: string;

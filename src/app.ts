@@ -12,6 +12,7 @@ import loginRouter from "./routes/login";
 import registerRouter from "./routes/register";
 import verifyCodeRouter from "./routes/verifyCode";
 import addDetailRouter from "./routes/add-details";
+import updateDetailRouter from "./routes/update-details";
 import errorHandler from "api-error-handler";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
@@ -75,6 +76,7 @@ class App {
     this.server.use("/auth/register", registerRouter);
     this.server.use("/auth/verify-code", verifyCodeRouter);
     this.server.use("/auth/add-detail", addDetailRouter);
+    this.server.use("/auth/update-detail", updateDetailRouter);
     this.server.use(errorHandler);
     this.server.use(this.jsonErrorHandler);
     this.server.use("*", (req: Request, res: Response, next: NextFunction) => {
