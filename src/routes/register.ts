@@ -39,7 +39,7 @@ router.post(
       code: hashCode,
       password: hashPassword,
     });
-    await User.deleteMany();
+    // await User.deleteMany();
 
     try {
       // setTimeout(async () => {
@@ -68,7 +68,7 @@ router.post(
     }
     res.status(201).json({
       success: true,
-      data: {
+      user: {
         userId: newUser.id,
         email: newUser.email,
         phone: newUser.phone,
