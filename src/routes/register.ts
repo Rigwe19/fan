@@ -52,31 +52,33 @@ router.post(
       });
       return res.status(422).json({ error: errors });
     }
-    let token;
     try {
-      token = jwt.sign(
+      let token;
+      token = await jwt.sign(
         {
           userId: newUser.id,
           email: newUser.email,
         },
         "FindANurseSecret",
-        { expiresIn: "1h" }
+        {
+          // expiresIn: "1h"
+        }
       );
+      res.status(201).json({
+        success: true,
+        user: {
+          userId: newUser.id,
+          email: newUser.email,
+          phone: newUser.phone,
+          isVerified: newUser.isVerified,
+          id: newUser._id,
+          token: token,
+        },
+      });
     } catch (err) {
       const error = new Error("Error! Something went wrong.");
       return next(error);
     }
-    res.status(201).json({
-      success: true,
-      user: {
-        userId: newUser.id,
-        email: newUser.email,
-        phone: newUser.phone,
-        isVerified: newUser.isVerified,
-        id: newUser._id,
-        token: token,
-      },
-    });
   }
 );
 
